@@ -49,7 +49,7 @@ def get_values(df):
 	"LAT","LONG","SHORT_NAME","FULL_NAME","ISO3136"
 	]]
 	cindex=countries.index
-	maxindex=max(s.index.values)
+	maxindex=len(df)
 
 	for i in s.index:
 		for j in cindex:
@@ -90,7 +90,7 @@ def main(
 
 	#this can take a while...
 	s=get_values(
-	pd.read_csv("Tor_query_EXPORT.csv",header=0,index_col=None).loc[:100,:])
+	pd.read_csv("Tor_query_EXPORT.csv",header=0,index_col=None))
 	s.dropna(how="any",inplace=True)
 
 	v=stats(s)
